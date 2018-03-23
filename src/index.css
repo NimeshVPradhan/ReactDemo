@@ -1,0 +1,28 @@
+.forecast-details-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.search-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction: row;
+  max-width: 1800px;
+  max-height: 100px;
+  margin: 50px auto;
+  background-color: rgb(76, 120, 180);
+}
+
+.details-container {
+  background-color: white;
+  border-style: solid;
+  border-width: 10px;
+  border-color: white;
+}
+html {background-color: white}
