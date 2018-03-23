@@ -19,7 +19,7 @@ class CurrentWeather extends React.Component{
   clickHandler(){
     //console.log('click');
     this.props.history.push({
-      pathname: '/forecast',
+      pathname: '/ReactDemo/forecast',
       search: '?city='+this.state.city,
     })
   }

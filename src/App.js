@@ -12,9 +12,9 @@ class App extends React.Component{
     return(
     <BrowserRouter>
       <div className='container'>
-          <Route path='/' component={Search} />
+          <Route path='/ReactDemo' component={Search} />
           <Route exact path='/ReactDemo' component={CurrentWeather} />
-          <Route path='/forecast' component={Forecast} />
+          <Route path='/ReactDemo/forecast' component={Forecast} />
       </div>
     </BrowserRouter>
     )
