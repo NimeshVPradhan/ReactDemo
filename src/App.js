@@ -13,7 +13,7 @@ class App extends React.Component{
     <BrowserRouter>
       <div className='container'>
           <Route path='/' component={Search} />
-          <Route exact path='/ReactDemo/' component={CurrentWeather} />
+          <Route path='/' component={CurrentWeather} />
           <Route path='/forecast' component={Forecast} />
       </div>
     </BrowserRouter>
