@@ -8,6 +8,7 @@ class Forecast extends React.Component{
     this.state = {
       loading:true,
       forecast:[],
+      city: '',
       err: ''
     }
 
@@ -68,21 +69,21 @@ class Forecast extends React.Component{
   }
 
   render(){
-    const {loading, forecast, err} = this.state;
-    const dailyForecast = JSON.parse(JSON.stringify(this.state.forecast));
+    const {loading, forecast, city, err} = this.state;
+    //const dailyForecast = JSON.parse(JSON.stringify(this.state.forecast));
     //console.log('state:'+JSON.stringify(dailyForecast));
-    return this.state.loading === true
+    return loading === true
     ?<div className='forecast-loading'></div>
     : !err?
     <div className='forecast-container'>
       <div className='forecast-heading-container'>
-        <h1 className='city-name'>{this.state.city}</h1>
+        <h1 className='city-name'>{city}</h1>
         <div className='forecast-summary-conatiner'>
-          {this.state.forecast.daily.summary}
+          {forecast.daily.summary}
         </div>
       </div>
         <div className='forecast-details-container'>
-            {dailyForecast.daily.data.map((daily, index)=>
+            {forecast.daily.data.map((daily, index)=>
               index<5?
               <Details state={daily} key={daily.time}/>
               :<div key={daily.time}></div>

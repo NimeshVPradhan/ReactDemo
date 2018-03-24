@@ -1,6 +1,5 @@
 var axios = require('axios');
 
-var _baseURL = 'http://api.openweathermap.org/data/2.5/';
 var _baseLocationURL = 'https://maps.googleapis.com/maps/api/geocode/';
 var _baseWeatherUrl = 'https://api.darksky.net/forecast/';
 var _geolocationUrl = 'https://www.googleapis.com/geolocation/v1/geolocate?key=';

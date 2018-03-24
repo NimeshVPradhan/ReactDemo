@@ -32,6 +32,7 @@
   max-width:320px;
   margin-right: 10px;
   justify-content: center;
+
 }
 
 .daily-details-container > p {
@@ -52,7 +53,8 @@
   position:fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);;
+
 }
 
 .forecast-loading {

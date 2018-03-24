@@ -32,6 +32,7 @@
   max-width:300px;
   margin-right: 50px;
   justify-content: center;
+
 }
 
 .daily-details-container > p {
@@ -50,7 +51,7 @@
 }
 
 .weather-details-container {
-  position:fixed;
+  position:relative;;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

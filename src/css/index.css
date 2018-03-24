@@ -56,14 +56,7 @@
 }
 
 .weather-details-container {
-  position:fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.forecast-loading {
-  position: fixed;
+  position:relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
