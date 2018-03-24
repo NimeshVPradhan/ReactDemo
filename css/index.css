@@ -55,9 +55,9 @@
   font-weight: bold;
 }
 
-.weather-details-container {
+.current-weather-button {
   position:fixed;
-  top: 50%;
+  top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
