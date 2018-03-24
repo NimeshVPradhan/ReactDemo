@@ -57,9 +57,9 @@
 
 .current-weather-button {
   position:fixed;
-  top: 400px;
+  top:400px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -100px);
 }
 
 .forecast-loading {
