@@ -4,10 +4,11 @@
   justify-content:space-between;
   align-items: center;
   flex-direction: column;
-  max-width: 480px;
+  max-width: 1800px;
   max-height: 150px;
-  margin: 50px auto;
-  background-color: rgb(76, 120, 180);
+  border-radius: 10px;
+  margin: 20px auto;
+  background-color: #0872db;
   justify-content: center;
 }
 
@@ -17,10 +18,20 @@
 
 .forecast-details-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  max-width: 600px;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.forecast-details-container > div{
+  display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  max-width: 4800px;
-  margin: 50px auto;
+  flex-wrap: wrap;
+  max-width: 300px;
+  margin: 10px;
   justify-content: center;
 }
 
@@ -31,19 +42,18 @@
   width: 100%;
   max-width:300px;
   margin-right: 50px;
-  justify-content: center;
 }
 
 .daily-details-container > p {
   font-weight:lighter;
   justify-content: flex-start;
   display: inline-block;
-
 }
 
 .daily-details-container > p > span {
   font-weight: bold;
 }
+
 .current-weather-container > p > span {
   justify-content: center;
   font-weight: bold;
@@ -51,15 +61,36 @@
 
 .current-weather-button {
   position:fixed;
-  top:400px;
+  margin-top: 200px;
   left: 50%;
   transform: translate(-50%, -100px);
 }
 
+
 .forecast-loading {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
 }
-html {background-color: white}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+html{
+  background: #00F260;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+body{
+  background: #00F260;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
