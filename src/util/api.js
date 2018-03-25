@@ -67,7 +67,7 @@ function getLocation(city){
         :
         {
           status:404,
-          data: 'Sorry, we could not find your city, '+city
+          data: 'could not find your city, '+city
         }
     }).catch(function(err){
       return err;
@@ -93,7 +93,7 @@ function getCurrentLocation(){
       //console.log('from api err:'+err);
       return {
         status:404,
-        err: 'Sorry, we could not find your current location'
+        err: 'could not find your current location'
       };
     })
 }
@@ -107,7 +107,7 @@ function getForecast(lat, lng){
     }).catch(function(err){
       return {
         status:404,
-        err: 'Sorry, we could not get weather forecast'
+        err: 'could not get weather forecast'
       };
     })
 }
@@ -122,7 +122,7 @@ function getCurrentWeather(lat, lng){
     }).catch(function(err){
       return {
         status:404,
-        err: 'Sorry, we could not find current weather near you'
+        err: 'could not find current weather near you'
       };
     })
 }

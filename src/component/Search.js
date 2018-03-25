@@ -18,10 +18,12 @@ class Forecast extends React.Component{
   }
 
   clickHandler(props) {
-    this.props.history.push({
-      pathname: '/ReactDemo/forecast',
-      search: '?city='+this.state.city,
-    });
+    if(this.state.city!==''){
+      this.props.history.push({
+        pathname: '/ReactDemo/forecast',
+        search: '?city='+this.state.city,
+      });
+    }
   }
 
   changeHandler(event){
@@ -35,8 +37,8 @@ class Forecast extends React.Component{
     return (
       <div className='search-container'>
       <Form>
-        <FormGroup className='search-container'>
-          <ControlLabel>Enter City  or Zipcode  </ControlLabel>
+        <FormGroup className='search-container-form-group'>
+          <ControlLabel className='search-heading'>Enter City  or Zipcode </ControlLabel>
           <FormControl
             type='text'
             placeholder='Binghamton, NY'

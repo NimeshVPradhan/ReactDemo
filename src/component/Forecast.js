@@ -25,13 +25,18 @@ class Forecast extends React.Component{
   }
 
   getCityAdress(cityDetails){
-    //console.log(JSON.stringify(cityDetails));
-    return cityDetails[0].types[0]==='postal_code'||'street_number'?
-      cityDetails[1].long_name+','
-            +cityDetails[cityDetails.length-2].short_name
-      :
-      cityDetails[0].long_name+','
-            +cityDetails[cityDetails.length-2].short_name
+    var city =''
+    for (var index in cityDetails){
+      if(cityDetails[index].types.indexOf('political')>-1&&cityDetails[index].types.indexOf('locality')>-1){
+        city = cityDetails[index].long_name;
+        continue;
+      }
+      if(cityDetails[index].types.indexOf('political')>-1&&cityDetails[index].types.indexOf('administrative_area_level_1')>-1){
+        city = city +','+cityDetails[index].short_name;
+        break;
+      }
+    }
+    return city;
   }
 
   getWeather(props){
@@ -58,6 +63,16 @@ class Forecast extends React.Component{
             })
           }.bind(this)
         )
+        .catch(function (err){
+          this.setState(function(){
+            return{
+              loading: false,
+              forecast:'',
+              err: 'server error',
+              city: ''
+            }
+          })
+        })
         :
         this.setState(function(){
           return{
@@ -65,7 +80,17 @@ class Forecast extends React.Component{
             err: response.data
           }
         })
-      }.bind(this));
+      }.bind(this))
+        .catch(function (err){
+          this.setState(function(){
+            return{
+              loading: false,
+              forecast:'',
+              err: 'server error',
+              city: ''
+            }
+          })
+        });
   }
 
   render(){
@@ -86,7 +111,7 @@ class Forecast extends React.Component{
             {forecast.daily.data.map((daily, index)=>
               index<5?
               <Details state={daily} key={daily.time}/>
-              :<div key={daily.time}></div>
+              :<p key={daily.time}></p>
             )
           }
         </div>

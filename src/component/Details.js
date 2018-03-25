@@ -12,7 +12,7 @@ class Details extends React.Component{
   render(){
     const {daily} = this.state;
     return (
-      <Well className='daily-details-container'  key={daily.time} bsSize='large'>
+      <Well className='daily-details-container'  key={daily.time}>
       <p><span>{helper.getDate(daily.time)}</span></p>
       <p><span>Summary:</span> {daily.summary}</p>
       <p><span>Max Temp:</span> {helper.getTemp(0,daily.temperatureMax)}</p>
