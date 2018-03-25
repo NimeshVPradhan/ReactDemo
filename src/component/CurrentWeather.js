@@ -70,6 +70,7 @@ class CurrentWeather extends React.Component{
                 <h1 className='err-msg'> {this.state.err}</h1>
             </div>
             :
+            <div className='current-weather-main-div'>
             <Button className='current-weather-button' bsSize='large' onClick={this.clickHandler}>
               <div className='current-weather-container'>
                 <h1 className='city-name'>{this.state.city}</h1>
@@ -81,6 +82,7 @@ class CurrentWeather extends React.Component{
               </div>
               </div>
             </Button>
+          </div>
   }
 
 }
