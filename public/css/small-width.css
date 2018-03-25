@@ -1,3 +1,6 @@
+*{
+  overflow: scroll;
+}
 
 .search-container {
   display: flex;
@@ -45,7 +48,7 @@
 }
 
 .daily-details-container > p {
-  font-weight:lighter;
+  font-weight:normal;
   justify-content: flex-start;
   display: inline-block;
 }
