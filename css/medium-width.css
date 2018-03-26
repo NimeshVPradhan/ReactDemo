@@ -1,4 +1,8 @@
-
+.unit-container form{
+  vertical-align: middle;
+  max-width: 150px;
+  margin: 10px auto;
+}
 .search-container {
   display: flex;
   justify-content:space-between;
@@ -61,11 +65,11 @@
 
 .current-weather-button {
   position:fixed;
-  margin-top: 200px;
+  top: 250px;
   left: 50%;
-  transform: translate(-50%, -100px);
+  height: 300px;
+  width: 300px;
 }
-
 .current-weather-main-div {
   max-height: 1800px;
   margin: 5px;

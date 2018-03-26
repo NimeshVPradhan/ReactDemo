@@ -1,15 +1,29 @@
+.unit-container form{
+  vertical-align: middle;
+  max-width: 150px;
+  margin: 10px auto;
+}
 
 .search-container {
   display: flex;
-  justify-content:space-between;
   align-items: center;
   flex-direction: row;
   max-width: 1800px;
-  max-height: 100px;
+  height: 100px;
   border-radius: 10px;
   margin: 50px auto;
   background-color: #0872db;
   justify-content: center;
+}
+
+.search-container-form-group {
+  vertical-align: middle;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  max-width: 1800px;
+  display: flex;
+  flex-direction: row;
 }
 
 .forecast-heading-container > * {
@@ -57,22 +71,16 @@
 
 .current-weather-button {
   position:fixed;
-  margin-top: 400px auto;
+  top: 250px;
   left: 50%;
-  transform: translate(-50%, -100px);
+  height: 300px;
+  width: 300px;
 }
 
 .forecast-loading {
   position: fixed;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.forecast-loading {
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, -50%);
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
