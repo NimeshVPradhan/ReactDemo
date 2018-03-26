@@ -1,6 +1,8 @@
 var React = require('react');
 var api = require('../util/api');
 var Details = require('./Details');
+var Unit = require('./Unit');
+var helper = require('../util/helpers');
 
 class Forecast extends React.Component{
   constructor(props){
@@ -17,10 +19,12 @@ class Forecast extends React.Component{
   }
 
   componentDidMount(){
+    //console.log(this.props.unit);
     this.getWeather(this.props);
   }
 
   componentWillReceiveProps(newProps){
+    //console.log(newProps);
     this.getWeather(newProps);
   }
 
@@ -95,8 +99,9 @@ class Forecast extends React.Component{
 
   render(){
     const {loading, forecast, city, err} = this.state;
-    //const dailyForecast = JSON.parse(JSON.stringify(this.state.forecast));
+    const dailyForecast = JSON.parse(JSON.stringify(this.state.forecast));
     //console.log('state:'+JSON.stringify(dailyForecast));
+    //console.log(forecast.daily);
     return loading === true
     ?<div className='forecast-loading'></div>
     : !err?
@@ -104,13 +109,13 @@ class Forecast extends React.Component{
       <div className='forecast-heading-container'>
         <h1 className='city-name'>{city}</h1>
         <div className='forecast-summary-conatiner'>
-          {forecast.daily.summary}
+          {forecast.daily.summary.replace(/\d+°(C|F)/g, helper.getTemp(this.props.unit, Number(forecast.daily.summary.match(/\d+/))))}
         </div>
       </div>
         <div className='forecast-details-container'>
             {forecast.daily.data.map((daily, index)=>
               index<5?
-              <Details state={daily} key={daily.time}/>
+              <Details state={daily} unit={this.props.unit} key={daily.time}/>
               :<p key={daily.time}></p>
             )
           }

@@ -27,8 +27,8 @@ function getDate(unix_timestamp){
   return days[GMTdate[0].split(',')[0]]+', '+GMTdate[1]+' '+months[GMTdate[2]];
 }
 
-function getTemp(value,temp){
-  return value===0?temp+'°F':((temp - 31)/1.8).toFixed(2)+'°C';
+function getTemp(unit,temp){
+  return unit==='fahrenheit'?temp+'°F':((temp - 31)/1.8).toFixed(2)+'°C';
 }
 
 module.exports ={

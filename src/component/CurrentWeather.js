@@ -25,6 +25,7 @@ class CurrentWeather extends React.Component{
   }
 
   componentDidMount(){
+    console.log('current weather:'+JSON.stringify(this.props));
     this.setState(function(){
       return{
         loading: true,
@@ -77,7 +78,7 @@ class CurrentWeather extends React.Component{
               <div className='current-weather-container'>
                 <p><span>{helper.getDate(this.state.weather.currently.time)}</span></p>
                 <p><span>Summary:</span> {this.state.weather.currently.summary}</p>
-                <p><span>Temp:</span> {helper.getTemp(0,this.state.weather.currently.temperature)}</p>
+                <p><span>Temp:</span> {helper.getTemp(this.props.unit,this.state.weather.currently.temperature)}</p>
                 <p><span>Humidity:</span> {this.state.weather.currently.humidity}</p>
               </div>
               </div>
