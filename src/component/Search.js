@@ -53,6 +53,7 @@ class Search extends React.Component{
             placeholder='Binghamton, NY'
             onChange={changeHandler}
             name='city'
+            value={this.state.city}
           />
           <Button
             onClick={clickHandler}

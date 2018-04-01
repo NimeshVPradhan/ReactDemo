@@ -25,7 +25,7 @@ class CurrentWeather extends React.Component{
   }
 
   componentDidMount(){
-    console.log('current weather:'+JSON.stringify(this.props));
+    //console.log('current weather:'+JSON.stringify(this.props));
     this.setState(function(){
       return{
         loading: true,

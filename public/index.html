@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-      <link rel="stylesheet" href="css/index.css" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("Button").click(function(){
+            if(document.getElementsByClassName('input-text')[0].value!==''){
+              $(".row1-col2").remove();
+              if(Number($(".row1").css(["height"]).height.match(/\d+/))>400){
+                var newHeight = Number($(".row1").css(["height"]).height.match(/\d+/))/2;
+                $(".row1").css("height",newHeight+"px");
+              }
+            }
+        });
+    });
+    </script>
   </head>
   <body>
     <div id="app"></div>
