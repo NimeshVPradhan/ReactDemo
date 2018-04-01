@@ -102,7 +102,7 @@ function getForecast(lat, lng){
   var url = _proxyURL + getForecastUrl(lat, lng, 'exclude=minutely,currently,hourly');
   return axios.get(url)
     .then(function(forecastData){
-      console.log(JSON.stringify(forecastData.status));
+      //console.log(JSON.stringify(forecastData.data.daily.data));
       return forecastData;
     }).catch(function(err){
       return {

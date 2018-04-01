@@ -1,4 +1,5 @@
 var React = require('react');
+var Unit = require('./Unit');
 
 var Button = require('react-bootstrap/lib/Button');
 var Form = require('react-bootstrap/lib/Form');
@@ -6,7 +7,7 @@ var FormControl = require('react-bootstrap/lib/FormControl');
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var ControlLabel = require('react-bootstrap/lib/ControlLabel');
 
-class Forecast extends React.Component{
+class Search extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -18,6 +19,7 @@ class Forecast extends React.Component{
   }
 
   clickHandler(props) {
+    console.log(this);
     if(this.state.city!==''){
       this.props.history.push({
         pathname: '/ReactDemo/forecast',
@@ -31,6 +33,12 @@ class Forecast extends React.Component{
     change[event.target.name] = event.target.value;
     this.setState(change);
   }
+
+  unithandler(unit){
+        this.setState({unit:unit});
+        this.props.callbackFromParent({unit:unit});
+  }
+
   render(){
     const {changeHandler, clickHandler} = this;
     //console.log('state in render:\n'+JSON.stringify(this.state));
@@ -38,8 +46,9 @@ class Forecast extends React.Component{
       <div className='search-container'>
       <Form>
         <FormGroup className='search-container-form-group'>
-          <ControlLabel className='search-heading'>Enter City  or Zipcode </ControlLabel>
+          <ControlLabel className='search-heading'>Enter City  or Zipcode</ControlLabel>
           <FormControl
+            className ='input-text'
             type='text'
             placeholder='Binghamton, NY'
             onChange={changeHandler}
@@ -52,10 +61,16 @@ class Forecast extends React.Component{
           </Button>
         </FormGroup>
       </Form>
+      <Unit callbackFromParent={
+          function(callBackData){
+            this.setState({unit :callBackData.unit});
+            this.unithandler(callBackData.unit);
+          }.bind(this)
+          }/>
     </div>
     )
   }
 }
 
 
-module.exports = Forecast;
+module.exports = Search;

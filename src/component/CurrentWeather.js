@@ -64,15 +64,19 @@ class CurrentWeather extends React.Component{
   render(){
     //console.log('state:'+JSON.stringify(this.state));
     return this.state.loading?
-            <div className='forecast-loading'></div>
+            <div className='loading'>
+              <span>loading current weather near you</span>
+              <div className='forecast-loading'>
+              </div>
+            </div>
             :
             this.state.err?
             <div className='err'>
-                <h1 className='err-msg'> {this.state.err}</h1>
+                <span className='err-msg'> {this.state.err}</span>
             </div>
             :
             <div className='current-weather-main-div'>
-            <Button className='current-weather-button' bsSize='large' onClick={this.clickHandler}>
+            <Button className='current-weather-button' style={{border:'white'}} onClick={this.clickHandler}>
               <div className='current-weather-container'>
                 <h1 className='city-name'>{this.state.city}</h1>
               <div className='current-weather-container'>

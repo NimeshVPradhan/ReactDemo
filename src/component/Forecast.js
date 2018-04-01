@@ -108,7 +108,7 @@ class Forecast extends React.Component{
     <div className='forecast-container'>
       <div className='forecast-heading-container'>
         <h1 className='city-name'>{city}</h1>
-        <div className='forecast-summary-conatiner'>
+        <div className='forecast-summary-container'>
           {forecast.daily.summary.replace(/\d+°(C|F)/g, helper.getTemp(this.props.unit, Number(forecast.daily.summary.match(/\d+/))))}
         </div>
       </div>

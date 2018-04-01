@@ -3,6 +3,7 @@ var ReactRouter = require('react-router-dom');
 var Search = require('./component/Search');
 var Forecast = require('./component/Forecast');
 var CurrentWeather = require('./component/CurrentWeather');
+var Header = require('./component/Header');
 var Unit = require('./component/Unit');
 
 var BrowserRouter = ReactRouter.BrowserRouter;
@@ -20,11 +21,13 @@ class App extends React.Component{
     return(
     <BrowserRouter>
       <div className='container'>
-          <Route path='/ReactDemo' component={Search} />
+          <Route path='/ReactDemo' component={Header} />
+          <div className='row1'>
+            <div className='row1-col1'>
           <Route path='/ReactDemo' render={
               function(props){
                 return(
-                  <Unit callbackFromParent={
+                  <Search {...props} callbackFromParent={
                       function(callBackData){
                         this.setState({unit :callBackData.unit});
                       }.bind(this)
@@ -32,13 +35,17 @@ class App extends React.Component{
                 )
               }.bind(this)
             } />
-          <Route exact path='/ReactDemo' render={
+        </div>
+        <div className='row1-col2'>
+          <Route path='/ReactDemo' render={
               function(props){
                 return(
                 <CurrentWeather {...props} unit={this.state.unit}/>
                 )
               }.bind(this)
             } />
+        </div>
+        </div>
           <Route exact path='/ReactDemo/forecast' render={
               function(props){
                 return(
