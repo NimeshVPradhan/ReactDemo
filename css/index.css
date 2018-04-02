@@ -96,6 +96,12 @@
     font-family: fantasy;
     transform: translateX(-50%);
     border-color: white;
+    overflow-x: scroll;
+  }
+
+  .current-weather-button .city-name {
+    overflow-x: visible;
+    width: 300px;
   }
 
   .forecast-heading-container > * {
@@ -254,6 +260,7 @@
     font-family: fantasy;
     transform: translateX(-50%);
     border-color: white;
+    overflow-x: hidden;
   }
 
   .forecast-heading-container > .city-name {
@@ -411,6 +418,7 @@
   height: 400px;
   width: 450px;
   font-family: fantasy;
+  overflow-x: hidden;
 }
 
 .forecast-heading-container > * {
