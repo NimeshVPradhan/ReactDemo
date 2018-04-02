@@ -14,6 +14,7 @@ class CurrentWeather extends React.Component{
     }
 
     this.clickHandler = this.clickHandler.bind(this);
+    this.getCityAdress = this.getCityAddress.bind(this);
   }
 
   clickHandler(){
@@ -23,6 +24,21 @@ class CurrentWeather extends React.Component{
       search: '?city='+this.state.city,
     })
   }
+
+    getCityAddress(cityDetails){
+      var city =''
+      for (var index in cityDetails){
+        if(cityDetails[index].types.indexOf('political')>-1&&cityDetails[index].types.indexOf('locality')>-1){
+          city = cityDetails[index].long_name;
+          continue;
+        }
+        if(cityDetails[index].types.indexOf('political')>-1&&cityDetails[index].types.indexOf('administrative_area_level_1')>-1){
+          city = city +','+cityDetails[index].short_name;
+          break;
+        }
+      }
+      return city;
+    }
 
   componentDidMount(){
     //console.log('current weather:'+JSON.stringify(this.props));
@@ -44,7 +60,7 @@ class CurrentWeather extends React.Component{
             weather.status===200?
               api.getCity(location.data.location.lat,location.data.location.lng)
               .then(function(city){
-                this.setState({city: city.data.results[0].address_components[2].long_name+','+city.data.results[0].address_components[4].short_name,
+                this.setState({city: this.getCityAddress(city.data.results[0].address_components),
                               loading:false, weather:weather.data})
                 }.bind(this))
               :
